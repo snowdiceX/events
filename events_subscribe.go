@@ -6,7 +6,6 @@ import (
 	"context"
 	"time"
 
-	ctypes "github.com/QOSGroup/cassini/types"
 	amino "github.com/tendermint/go-amino"
 	"github.com/tendermint/tendermint/rpc/client"
 	tctypes "github.com/tendermint/tendermint/rpc/core/types"
@@ -19,7 +18,6 @@ func SubscribeRemote(remote string, subscriber string, query string) (
 	wsClient := client.NewHTTP(remote, "/websocket")
 
 	cdc := amino.NewCodec()
-	ctypes.RegisterCassiniTypesAmino(cdc)
 	ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 
 	wsClient.Start()
