@@ -1,4 +1,4 @@
-module github.com/QOSGroup/events
+module github.com/snowdiceX/events
 
 go 1.12
 
